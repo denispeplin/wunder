@@ -2,7 +2,7 @@ defmodule Wunder.PairsTest do
   use ExUnit.Case
 
   describe "read" do
-    test "places pairs data into tuples" do
+    test "places pairs data into pairs of tuples" do
       pairs = Wunder.Pairs.read()
 
       assert pairs
