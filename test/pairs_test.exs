@@ -3,17 +3,17 @@ defmodule Wunder.PairsTest do
 
   describe "read" do
     test "places pairs data into tuples" do
-      tuples = Wunder.Pairs.read()
+      pairs = Wunder.Pairs.read()
 
-      assert tuples
-      [first_row | _] = tuples
+      assert pairs
+      [first_pair | _] = pairs
 
-      assert first_row == [
+      assert first_pair == [
                {120.99287, 14.75659},
                {120.99206, 14.756699999999999}
              ]
 
-      assert Enum.count(tuples) == 164
+      assert Enum.count(pairs) == 164
     end
   end
 end
