@@ -22,6 +22,10 @@ defmodule Wunder.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:geo_postgis, "~> 2.0"},
+      {:ecto, "~> 2.0"},
+      {:postgrex, "~> 0.11"},
+      {:poison, "~> 3.1"},
       {:csv, "~> 2.0.0"}
     ]
   end

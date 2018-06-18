@@ -4,12 +4,12 @@ defmodule Wunder.Application do
   @moduledoc false
 
   use Application
+  import Supervisor.Spec
 
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: Wunder.Worker.start_link(arg)
-      # {Wunder.Worker, arg},
+      supervisor(Wunder.Repo, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
