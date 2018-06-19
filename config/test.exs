@@ -5,4 +5,7 @@ config :wunder, Wunder.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  port: "5432"
+  port: "5432",
+  types: Wunder.PostgresTypes
+
+config :logger, :console, level: :error
