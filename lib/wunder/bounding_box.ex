@@ -35,4 +35,19 @@ defmodule Wunder.BoundingBox do
       {lon2, lat1}
     ]
   end
+
+  def read do
+    Wunder.Pairs.read()
+    |> Enum.map(&Wunder.BoundingBox.from_pair/1)
+    |> Enum.filter(fn box -> !is_nil(box) end)
+  end
+
+  def to_geom([a, c, b, d]) do
+    %Geo.Polygon{
+      coordinates: [
+        [a, c, b, d, a]
+      ],
+      srid: 4326
+    }
+  end
 end

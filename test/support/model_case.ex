@@ -17,6 +17,7 @@ defmodule Wunder.ModelCase do
   using do
     quote do
       alias Wunder.Repo
+      alias Wunder.Models
 
       import Ecto
       import Ecto.Changeset

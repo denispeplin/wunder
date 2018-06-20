@@ -14,6 +14,12 @@ defmodule Wunder.Models.Box do
     |> validate_required(:geom)
   end
 
+  def insert!(geom) do
+    %Models.Box{}
+    |> Models.Box.changeset(%{geom: geom})
+    |> Repo.insert!()
+  end
+
   def included_coordinates(box) do
     from(
       b in Models.Box,

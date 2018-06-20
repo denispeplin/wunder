@@ -12,4 +12,10 @@ defmodule Wunder.Models.Coordinate do
     |> cast(params, [:geom])
     |> validate_required(:geom)
   end
+
+  def insert!(geom) do
+    %Models.Coordinate{}
+    |> Models.Coordinate.changeset(%{geom: geom})
+    |> Repo.insert!()
+  end
 end
