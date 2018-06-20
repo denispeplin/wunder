@@ -1,5 +1,5 @@
 defmodule Wunder.Models.CoordinateTest do
-  use ExUnit.Case
+  use Wunder.ModelCase
 
   describe "permanent storage" do
     test "insert and select a coordinate" do

@@ -6,6 +6,8 @@ defmodule Wunder do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
+      alias Wunder.Repo
+      alias Wunder.Models
     end
   end
 
