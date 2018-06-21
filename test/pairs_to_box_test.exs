@@ -13,4 +13,18 @@ defmodule Wunder.PairToBoxTest do
       assert match(box, [{2, 2}, {2, 2}]) == []
     end
   end
+
+  describe "save_pair_to_box" do
+    test "gets pair, converts it to polygon and saves to db" do
+      box = save_pair_to_box([{2, 2}, {3, 3}])
+      assert box
+      assert box.id
+
+      assert box.geom == %Geo.Polygon{
+               coordinates: [[{2, 2}, {2, 3}, {3, 3}, {3, 2}, {2, 2}]],
+               properties: %{},
+               srid: 4326
+             }
+    end
+  end
 end
