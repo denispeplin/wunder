@@ -1,21 +1,43 @@
 # Wunder
 
-**TODO: Add description**
+Play with coordinates
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `wunder` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:wunder, "~> 0.1.0"}
-  ]
-end
+```bash
+mix deps.get
+mix do ecto.create, ecto.migrate
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/wunder](https://hexdocs.pm/wunder).
+## Usage
 
+### Read pairs and create bounding boxes
+
+```elixir
+Wunder.BoundingBox.read()
+```
+
+### Save pairs + coordinates and match boxes
+
+```elixir
+Wunder.save_data() |> Wunder.Models.Box.matching_coordinates()
+```
+
+### Match pair of coordinates to a box
+
+```elixir
+box = Wunder.Repo.get!(Wunder.Models.Box, 123)
+Wunder.PairToBox.match(box, [{1, 2}, {3, 4}])
+```
+
+## Testing
+
+```elixir
+MIX_ENV=test mix do ecto.create, ecto.migrate
+mix test
+```
+
+## Notes
+
+Project includes `pairs.csv` (162 valid pairs) and `coordinates.csv` (1314 coordinates), but only 5
+coordinates match to corresponding boxes.
