@@ -30,4 +30,13 @@ defmodule Wunder.Models.Box do
     )
     |> Repo.all()
   end
+
+  def matching_coordinates do
+    from(
+      b in Models.Box,
+      join: c in Models.Coordinate,
+      on: st_contains(b.geom, c.geom)
+    )
+    |> Repo.all()
+  end
 end
