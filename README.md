@@ -1,6 +1,6 @@
 # Wunder
 
-Play with coordinates
+Play with coordinates. Get a task description [here](TASK_DESCRIPTION.md)
 
 ## Installation
 
@@ -39,5 +39,5 @@ mix test
 
 ## Notes
 
-Project includes `pairs.csv` (162 valid pairs) and `coordinates.csv` (1314 coordinates), but only 5
+Project includes [pairs.csv](priv/data/pairs.csv) (162 valid pairs) and [coordinates.csv](priv/data/coordinates.csv) (1314 coordinates), but only 5
 coordinates match to corresponding boxes.
